@@ -247,7 +247,7 @@ Readability.prototype = {
     }
 
     var classesToPreserve = this._classesToPreserve;
-    var className = node.className
+    var className = (node.className instanceof SVGAnimatedString ? node.className.baseVal : node.className)
       .split(/\s+/)
       .filter(function(cls) {
         return classesToPreserve.indexOf(cls) != -1;
